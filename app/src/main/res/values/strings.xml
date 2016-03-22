@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Yalantis_intership</string>
+    <string name="code">CE-1257218</string>
+    <string name="name">Комунальне господарство</string>
+    <string name="status">В роботі</string>
+    <string name="created">Створено</string>
+    <string name="registered">Зареєстровано</string>
+    <string name="solve_to">Вирішити до</string>
+    <string name="responsible">Відповідальний</string>
+    <string name="describe">Майже 50 років людство здійснює космічні подорожі. Створено безліч апаратів, що здатні вивчати Всесвіт, рухатись по далеких планетах.</string>
+
+</resources>

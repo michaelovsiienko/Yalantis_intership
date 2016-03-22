@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".ui.activity.MainActivity">
+
+    <include layout="@layout/toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/universalpadding"
+        android:layout_marginRight="@dimen/universalpadding"
+        android:id="@+id/scrollView"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/name"
+                android:textStyle="bold"
+                android:text="Medium Text"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/subtitletextsize"
+                android:paddingBottom="@dimen/paddingtop" />
+
+            <TextView
+                android:background="@drawable/rounded_text"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/status"
+               />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/universalpadding"
+                android:layout_marginBottom="@dimen/universalpadding">
+
+                <View
+                    style="@style/simpleview"
+                    android:id="@+id/view1"/>
+
+                <TextView
+                    style="@style/textviewleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:layout_below="@+id/view1"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/created"
+                    />
+
+                <TextView
+                    style="@style/textviewright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:layout_below="@+id/view1"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"
+
+                    android:id="@+id/created_time"
+                    />
+
+                <View
+                    style="@style/simpleview"
+                    android:id="@+id/view2"
+                    android:layout_below="@+id/created_time"
+                    android:layout_alignRight="@+id/created_time"
+                     />
+
+                <TextView
+                    style="@style/textviewleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:layout_below="@+id/view2"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/registered"/>
+
+                <TextView
+                    style="@style/textviewright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/registered_time"
+                    android:layout_below="@+id/view2"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"/>
+
+                <View
+                    style="@style/simpleview"
+                    android:id="@+id/view3"
+                    android:layout_below="@id/registered"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    style="@style/textviewleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:layout_below="@+id/view3"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/solve_to"/>
+
+                <TextView
+                    style="@style/textviewright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/solve_to_time"
+                    android:layout_below="@+id/view3"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding" />
+
+                <View
+                    style="@style/simpleview"
+                    android:id="@+id/view4"
+                    android:layout_below="@id/solve_to"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    style="@style/textviewleft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:layout_below="@+id/view4"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/responsible"
+                    />
+
+                <TextView
+                    style="@style/textviewright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/responsible_object"
+                    android:layout_below="@+id/view4"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/universalpadding"
+                    android:paddingBottom="@dimen/universalpadding" />
+
+                <View
+                    style="@style/simpleview"
+                    android:id="@+id/view5"
+                    android:layout_alignBottom="@+id/responsible_object"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/problemtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="DESCRIPTION"
+                android:id="@+id/description" />
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+            >
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
