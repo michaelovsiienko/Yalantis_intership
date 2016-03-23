@@ -11,8 +11,9 @@ import java.util.Locale;
 /**
  * Class which contains methods and info for show data on display
  */
-public class dataclass {
-    private String code_app;
+//[Comment] Whats wrong with formatter? Use ctrl + alt + L
+public class dataclass { //[Comment] NEVER use such class names
+    private String code_app; //[Comment] Wrong names, check google code style
     private String name;
     private String status;
     private String created;
@@ -23,7 +24,7 @@ public class dataclass {
     private String responsible_object;
 
     private String created_time;
-    private String registered_time;
+    private String registered_time; //[Comment] Unused objects
     private String solve_to_time;
     public void setCode_app (String _code_app)
     {
@@ -101,11 +102,11 @@ public class dataclass {
     }
     public  String getCreated_time (Date date)
     {
-        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date);
+        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date); //[Comment] Hardcode
     }
     public String getRegistered_time (Date date )
     {
-        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date);
+        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date); //[Comment] Hardcode
     }
     public String getSolve_to_time (Date date, int days)
     {
@@ -113,12 +114,12 @@ public class dataclass {
         cal.setTime(date);
         cal.add(Calendar.DATE, days);
         date = cal.getTime();
-        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date);
+        return new SimpleDateFormat("dd MMMM y", Locale.getDefault()).format(date); //[Comment] Hardcode
     }
     public List<String> getimageurls() {
         List<String> mylist = new ArrayList<>();
         mylist.add("http://bm.img.com.ua/nxs/img/prikol/images/large/9/8/310889.jpg");
-        mylist.add("http://bm.img.com.ua/nxs/img/prikol/images/large/6/5/310856.jpg");
+        mylist.add("http://bm.img.com.ua/nxs/img/prikol/images/large/6/5/310856.jpg"); //[Comment] Hardcode
         mylist.add("http://bm.img.com.ua/nxs/img/prikol/images/large/1/4/310841.jpg");
         return mylist;
     }

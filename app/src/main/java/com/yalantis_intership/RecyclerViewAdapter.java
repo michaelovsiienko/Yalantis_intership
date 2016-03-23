@@ -17,12 +17,12 @@ import java.util.List;
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder> {
-    private static List<String> urls;
-    private Context context;
+    private static List<String> urls; //[Comment] Why static?
+    private Context context; //[Comment] Wrong names
     public  RecyclerViewAdapter (Context _context, List<String> _urls)
     {
         this.context = _context;
-        this.urls = _urls;
+        this.urls = _urls; //[Comment] Wrong formatting
     }
 
     @Override

@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         super.onStart();
         //initialization all data for display on screen
-        initialization();
+        initialization(); //[Comment] Why in onStart?
         //set data for control elements
-        operationwithtext(this);
+        operationwithtext(this); //[Comment] Use camelCase in method and object names. It's difficult to read such code
     }
 
     @Override
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Toolbar toolbar =  (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //[Comment] It can be null
 
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         //create new exemplar class which display some photo
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         //create new exemplar class which work with image data
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),dc.getimageurls());
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),dc.getimageurls()); //[Comment] Wrong method names
 
         recyclerView.setLayoutManager(layoutManager);
 
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dc.setDescription(getResources().getString(R.string.description));
         dc.setResponsible_object(getResources().getString(R.string.responsible_object));
     }
-    private void operationwithtext (MainActivity v)
-    {
+    private void operationwithtext (MainActivity v) //[Comment] argument never used
+    {   //[Comment] Whats wrong with formatter
         Date date = new Date();
         Random random = new Random();
         setTitle(dc.getCode_app());
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         responsible_object.setOnClickListener(this);
         TextView description = (TextView)findViewById(R.id.description);
         description.setText(dc.getDescription());
-        description.setOnClickListener(this);
+        description.setOnClickListener(this); //[Comment] Copy/paste code
 
     }
     @Override
