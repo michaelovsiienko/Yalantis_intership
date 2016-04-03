@@ -1,119 +1,108 @@
 package com.yalantis_intership;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextWatcher;
-import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
+
 //Class for interacting with user
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     //create new object of class which work with information data
-    dataclass dc = new dataclass();
-    @Override
-    protected void onStart ()
-    {
-        super.onStart();
-        //initialization all data for display on screen
-        initialization();
-        //set data for control elements
-        operationwithtext(this);
-    }
+    DataClass dataClass = new DataClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar =  (Toolbar)findViewById(R.id.toolbar);
+        //initialization all data for display on screen
+        initialization();
+        //set data for control elements
+        operationWithText();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //TODO: getSupportActionBar() may produce NullPointerException
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //create new exemplar class which display some photo
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         //create new exemplar class which work with image data
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),dc.getimageurls());
-
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(), dataClass.getImgUrls());
         recyclerView.setLayoutManager(layoutManager);
-
         recyclerView.setAdapter(recyclerViewAdapter);
     }
-    private void initialization ()
-    {
-        dc.setCode_app(getResources().getString(R.string.code));
-        dc.setCreated(getResources().getString(R.string.created));
-        dc.setName(getResources().getString(R.string.name));
-        dc.setRegistered(getResources().getString(R.string.registered));
-        dc.setStatus(getResources().getString(R.string.status));
-        dc.setSolve_to(getResources().getString(R.string.solve_to));
-        dc.setResponsible(getResources().getString(R.string.responsible));
-        dc.setDescription(getResources().getString(R.string.description));
-        dc.setResponsible_object(getResources().getString(R.string.responsible_object));
-    }
-    private void operationwithtext (MainActivity v)
-    {
-        Date date = new Date();
-        Random random = new Random();
-        setTitle(dc.getCode_app());
-        TextView name = (TextView)findViewById(R.id.name);
-        name.setText(dc.getName());
-        name.setOnClickListener(this);
-        TextView status = (TextView)findViewById(R.id.status);
-        status.setText(dc.getStatus());
-        status.setOnClickListener(this);
-        TextView created = (TextView)findViewById(R.id.created);
-        created.setText(dc.getCreated());
-        created.setOnClickListener(this);
-        TextView registered = (TextView)findViewById(R.id.registered);
-        registered.setText(dc.getRegistered());
-        registered.setOnClickListener(this);
-        TextView solve_to = (TextView)findViewById(R.id.solve_to);
-        solve_to.setText(dc.getSolve_to());
-        solve_to.setOnClickListener(this);
-        TextView responsible = (TextView)findViewById(R.id.responsible);
-        responsible.setText(dc.getResponsible());
-        responsible.setOnClickListener(this);
-        responsible.setOnClickListener(this);
-        TextView created_time = (TextView)findViewById(R.id.created_time);
-        created_time.setText(dc.getCreated_time(date));
-        created_time.setOnClickListener(this);
-        TextView registered_time = (TextView)findViewById(R.id.registered_time);
-        registered_time.setText(dc.getRegistered_time(date));
-        registered_time.setOnClickListener(this);
-        TextView solve_to_time = (TextView)findViewById(R.id.solve_to_time);
-        solve_to_time.setText(dc.getSolve_to_time(date, random.nextInt(10)));
-        solve_to_time.setOnClickListener(this);
-        TextView responsible_object = (TextView)findViewById(R.id.responsible_object);
-        responsible_object.setText(dc.getResponsible_object());
-        responsible_object.setOnClickListener(this);
-        TextView description = (TextView)findViewById(R.id.description);
-        description.setText(dc.getDescription());
-        description.setOnClickListener(this);
+
+    private void initialization() {
+        dataClass.setCode(getResources().getString(R.string.code));
+        dataClass.setCreated(getResources().getString(R.string.created));
+        dataClass.setName(getResources().getString(R.string.name));
+        dataClass.setRegistered(getResources().getString(R.string.registered));
+        dataClass.setStatus(getResources().getString(R.string.status));
+        dataClass.setSolve_to(getResources().getString(R.string.solve_to));
+        dataClass.setResponsible(getResources().getString(R.string.responsible));
+        dataClass.setDescription(getResources().getString(R.string.description));
+        dataClass.setResponsible_object(getResources().getString(R.string.responsible_object));
+        dataClass.setImgUrls(Arrays.asList(getApplicationContext().getResources().getStringArray(R.array.images_urls)));
 
     }
+
+    private void operationWithText() {
+        Date date = new Date();
+        Random random = new Random();
+        setTitle(dataClass.getCode());
+        TextView name = (TextView) findViewById(R.id.name);
+        TextView status = (TextView) findViewById(R.id.status);
+        TextView created = (TextView) findViewById(R.id.created);
+        TextView registered = (TextView) findViewById(R.id.registered);
+        TextView solve_to = (TextView) findViewById(R.id.solve_to);
+        TextView responsible = (TextView) findViewById(R.id.responsible);
+        TextView created_time = (TextView) findViewById(R.id.created_time);
+        TextView registered_time = (TextView) findViewById(R.id.registered_time);
+        TextView solve_to_time = (TextView) findViewById(R.id.solve_to_time);
+        TextView responsible_object = (TextView) findViewById(R.id.responsible_object);
+        TextView description = (TextView) findViewById(R.id.description);
+        //TODO: setText() may produce NullPointerException
+        try {
+            name.setText(dataClass.getName());
+            status.setText(dataClass.getStatus());
+            created.setText(dataClass.getCreated());
+            registered.setText(dataClass.getRegistered());
+            solve_to.setText(dataClass.getSolve_to());
+            responsible.setText(dataClass.getResponsible());
+            created_time.setText(dataClass.getCreated_time(date));
+            registered_time.setText(dataClass.getRegistered_time(date));
+            solve_to_time.setText(dataClass.getSolve_to_time(date, random.nextInt(10)));
+            responsible_object.setText(dataClass.getResponsible_object());
+            description.setText(dataClass.getDescription());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
-    public boolean onOptionsItemSelected (MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
-            Toast.makeText(getApplicationContext(),item.getClass().getSimpleName(),Toast.LENGTH_SHORT).show();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Toast.makeText(getApplicationContext(), item.getClass().getSimpleName(), Toast.LENGTH_SHORT).show();
             finish();
         }
         return true;
     }
-    public void onClick (View v)
-     {
-        Toast.makeText(getApplicationContext(),v.getClass().getSimpleName(),Toast.LENGTH_SHORT).show();
-     }
+
+    public void onClick(View v) {
+        Toast.makeText(getApplicationContext(), v.getClass().getSimpleName(), Toast.LENGTH_SHORT).show();
+    }
 
 }

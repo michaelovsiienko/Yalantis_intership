@@ -8,5 +8,9 @@
     <string name="solve_to">Вирішити до</string>
     <string name="responsible">Відповідальний</string>
     <string name="describe">Майже 50 років людство здійснює космічні подорожі. Створено безліч апаратів, що здатні вивчати Всесвіт, рухатись по далеких планетах.</string>
-
+    <array name="images_urls">
+        <item>http://bm.img.com.ua/nxs/img/prikol/images/large/9/8/310889.jpg></item>
+        <item>http://bm.img.com.ua/nxs/img/prikol/images/large/6/5/310856.jpg</item>
+        <item>http://bm.img.com.ua/nxs/img/prikol/images/large/1/4/310841.jpg</item>
+    </array>
 </resources>
