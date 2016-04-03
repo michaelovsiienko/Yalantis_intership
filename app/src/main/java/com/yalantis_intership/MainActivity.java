@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         operationWithText();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //TODO: getSupportActionBar() may produce NullPointerException
+
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException e) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView solve_to_time = (TextView) findViewById(R.id.solve_to_time);
         TextView responsible_object = (TextView) findViewById(R.id.responsible_object);
         TextView description = (TextView) findViewById(R.id.description);
-        //TODO: setText() may produce NullPointerException
+
         try {
             name.setText(dataClass.getName());
             status.setText(dataClass.getStatus());
